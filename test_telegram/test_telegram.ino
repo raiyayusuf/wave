@@ -4,8 +4,14 @@
 #include <ArduinoJson.h>
 
 // ================== KONFIGURASI ==================
-const char* ssid = "omah azel";
-const char* password = "azelia545177";
+// const char* ssid = "omah azel";
+// const char* password = "azelia545177";
+
+// const char* ssid = "iyanwifi";
+// const char* password = "iyanganteng";
+
+const char* ssid = "IG : @Triwahyu45";
+const char* password = "@Aguswahyu45";
 
 #define BOT_TOKEN "8983741538:AAH0LSuUqc2Z7hQwiTR8ejF5QgzurCeDi5Q"
 #define CHAT_ID "8149678877"
