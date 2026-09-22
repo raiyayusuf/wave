@@ -1,10 +1,8 @@
-// ================== TEST PUMP + RELAY ==================
-// Relay 1 Channel (HIGH Trigger) + Pump + Arduino Uno
-// Pin: D13
-// Jumper: H (HIGH trigger)
+// ================== TEST PUMP + L298N ==================
+// L298N + Pump + Arduino Uno
 
 // ================== PIN ==================
-#define RELAY_PIN 13   // D13
+#define IN1 7   // L298N IN1
 
 // ================== VARIABEL ==================
 unsigned long bootTime;
@@ -28,13 +26,13 @@ void setup() {
   delay(1000);
   bootTime = millis();
   
-  pinMode(RELAY_PIN, OUTPUT);
-  digitalWrite(RELAY_PIN, LOW);  // Relay OFF (HIGH trigger)
+  pinMode(IN1, OUTPUT);
+  digitalWrite(IN1, LOW);  // Pump OFF
   
-  Serial.println("\n\n💧 TEST PUMP + RELAY (HIGH Trigger)");
+  Serial.println("\n\n💧 TEST PUMP + L298N");
   Serial.println("═══════════════════════════════════════");
   Serial.println(getTimestamp() + " Boot time: " + String(bootTime) + " ms");
-  Serial.println(getTimestamp() + " Pin: D" + String(RELAY_PIN));
+  Serial.println(getTimestamp() + " Pin: D" + String(IN1));
   Serial.println("═══════════════════════════════════════");
   Serial.println("Pump nyala-mati tiap 5 detik");
   Serial.println("═══════════════════════════════════════\n");
@@ -46,11 +44,11 @@ void setup() {
 void loop() {
   // Pump ON
   Serial.println(getTimestamp() + " 💧 Pump ON");
-  digitalWrite(RELAY_PIN, HIGH);  // HIGH = ON
+  digitalWrite(IN1, HIGH);
   delay(5000);
   
   // Pump OFF
   Serial.println(getTimestamp() + " ⭕ Pump OFF");
-  digitalWrite(RELAY_PIN, LOW);   // LOW = OFF
+  digitalWrite(IN1, LOW);
   delay(5000);
 }
